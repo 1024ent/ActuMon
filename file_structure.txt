@@ -1,0 +1,36 @@
+my_app/
+│
+├── main.py                  # Entry point, starts the app
+│
+├── ui/                      # Qt Designer .ui files
+│   ├── loading_screen.ui
+│   ├── main_window.ui
+│   └── monitoring_tab.ui
+│
+├── resources/               # Images, icons, stylesheets
+│   ├── icons/
+│   └── style.qss
+│
+├── controllers/             # Connects UI actions ↔ logic
+│   ├── loading_controller.py
+│   ├── main_controller.py
+│   └── monitoring_controller.py
+│
+├── communication/           # Handles ESP32 serial comms
+│   ├── serial_manager.py    # Opens/closes port, sends & receives data
+│   ├── protocol.py          # Defines command/response format
+│   └── parser.py            # Parses incoming messages
+│
+├── hardware/                # High-level abstraction for actuators & sensors
+│   ├── motor.py             # Motor control commands (via serial)
+│   ├── valve.py             # Solenoid valve commands (via serial)
+│   ├── sensors.py           # Sensor read requests (via serial)
+│   └── hardware_manager.py  # Wraps all devices in one class
+│
+├── models/                  # App state & data
+│   └── system_state.py      # Stores motor status, sensor values, errors
+│
+└── utils/                   # Helpers
+    ├── config.py            # Serial port, baudrate, thresholds
+    ├── logger.py            # Logs comms & errors
+    └── threads.py           # Worker threads (for background serial reads)
